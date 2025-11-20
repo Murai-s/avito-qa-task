@@ -2,6 +2,7 @@
 ```
 git clone https://github.com/Murai-s/avito-qa-task.git
 ```
+Или скачайте zip-архив по [ссылке](https://github.com/Murai-s/avito-qa-task/archive/refs/heads/main.zip) и распакуйте его
 ### 2. Для запуска тестов вам понадобятся Java (JDK) и Maven. Убедитесь, что они установлены на вашем компьютере. В командной строке/терминале выполните команды:
 ```
 java -version
