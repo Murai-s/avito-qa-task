@@ -157,6 +157,22 @@ public class ApiTests {
         assertThat(createResponse.jsonPath().getString("result.message")).isEqualTo(testCase.getExpectedMessage());
     }
 
+    @Test(description = "TC-1.9: Создание объявления с нулевой ценой (price: 0)")
+    public void shouldReturn400ForAdWithZeroPrice() {
+        Ad adWithZeroPrice = Ad.builder()
+                .sellerId(generateUniqueSellerId())
+                .name("Товар с нулевой ценой")
+                .price(0)
+                .statistics(Statistics.builder().likes(1).contacts(1).viewCount(1).build())
+                .build();
+
+        Response createResponse = apiClient.createdAd(adWithZeroPrice);
+
+        assertThat(createResponse.statusCode()).isEqualTo(400);
+        assertThat(createResponse.jsonPath().getString("result.message"))
+                .isEqualTo("поле price обязательно");
+    }
+
     @Test(description = "TC-2.2: Ошибка 404 при запросе несуществующего объявления")
     public void shouldReturn404ForNonExistentAd() {
         String nonExistentId = UUID.randomUUID().toString();
