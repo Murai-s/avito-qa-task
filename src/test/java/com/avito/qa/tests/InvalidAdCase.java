@@ -1,12 +1,10 @@
 package com.avito.qa.tests;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
-@Getter
-@ToString
+@NoArgsConstructor
+@Data
 public class InvalidAdCase {
 
     private String description;
